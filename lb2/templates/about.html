@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}О нас{% endblock %}
+{% block style %}/static/css/style_about.css{% endblock %}
+
+{% block content %}
+<section class="school">
+	<div class="deepblue"></div>
+	<div class="container">
+	<img src="/static/img/about1.jpg" alt="woman with guitar doing studies">
+	<div class="music-school">
+		<h2>Музыкальная школа</h2>
+		<p>Школа объединяет в себе около тысячи юных музыкантов, художников, танцоров, а десятки опытных, ищущих новые пути педагогов, дают им возможность раскрыть свои таланты, постичь тайны искусств и мастерства.</p>
+	</div>
+	</div>
+	<div class="lightblue"></div>
+</section class="school">
+
+<section class="pedagogy">
+	<div class="title">
+		<h2>Музыкальная психология и педагогия</h2>
+	</div>
+	<div class="info">
+		<img src="/static/img/about2.jpg" alt="teacher portrait">
+		<p>Высоко оцененная программа</p>
+		<p>В наших программах обучения подчеркиваются пять основных принципов, призванных подготовить студентов к успешной карьере в области музыки:</p>
+		<ul>
+			<li>Гибкость</li>
+			<li>Новаторство</li>
+			<li>Пытливость</li>
+			<li>Лидерство</li>
+			<li>Равенство во всех отношениях</li>
+		</ul>
+	</div>
+</section class="pedagogy">
+{% endblock %}

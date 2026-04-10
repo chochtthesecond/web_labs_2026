@@ -1,0 +1,453 @@
+:root {
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-primary: #3e588b;
+    --color-primary-dark: #bb86fc;
+    --color-bg-body: #f7f9f8;
+    --color-bg-body-dark: #121212;
+    --color-bg-surface: #202020;
+    --color-bg-surface-alt: #1e1e1e;
+    --color-bg-card: #2a2a2a;
+    --color-text-main: #333;
+    --color-text-light: #e0e0e0;
+    --color-accent: #c0cfec;
+    --color-accent-dark: #8861b7;
+    --color-hover-link: #6a96ed;
+    --color-hover-bg: #f0f0f0;
+    --color-border-light: rgba(0, 0, 0, 0.726);
+    --color-info-bg-light: #eff3fa;
+    --color-placeholder-light: #999;
+    --color-shadow-light: rgba(0, 0, 0, 0.1);
+	--color-placeholder-dark: #aaa;
+    --color-shadow-dark: rgba(255, 255, 255, 0.1);
+    --transition-duration: 0.3s;
+    --transition-timing: ease;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: "Roboto Condensed", sans-serif;
+    line-height: 1.5;
+    background-color: var(--color-primary);
+    color: var(--color-text-main);
+}
+
+.dark-mode body {
+    background-color: var(--color-primary-dark);
+    color: var(--color-text-light);
+}
+
+/*Header*/
+header {
+    background-color: var(--color-white);
+    padding: 0.7%;
+    font-family: "Roboto Condensed", sans-serif;
+    transition: background-color var(--transition-duration) var(--transition-timing);
+}
+
+.dark-mode header {
+    background-color: var(--color-bg-surface);
+}
+
+.menu-container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    text-align: right;
+    margin-right: 10%;
+}
+
+.dark-mode .menu-container {
+    margin-right: 10%;
+}
+
+#menu-button {
+    font-size: 2.3rem;
+    background: var(--color-white);
+    color: var(--color-black);
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+#menu-button:hover {
+    color: var(--color-hover-link);
+}
+
+.dark-mode #menu-button {
+    color: var(--color-text-light);
+    background-color: var(--color-bg-surface);
+}
+
+.dark-mode #menu-button:hover {
+    color: var(--color-primary-dark);
+}
+
+#theme-button {
+    border: none;
+    background: none;
+    max-width: 10%;
+}
+
+#theme-button img {
+    max-width: 70%;
+    height: auto;
+    border-radius: 50%;
+}
+
+.menu {
+    position: absolute;
+    top: 50px;
+    width: 80%;
+    margin-left: 17%;
+    background: var(--color-white);
+    border-radius: 5px;
+    overflow: hidden;
+    max-height: 0;
+	transition: max-height var(--transition-duration) var(--transition-timing);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.menu a {
+    text-decoration: none;
+    display: block;
+    font-size: 1.5rem;
+    padding: 10px;
+    color: var(--color-text-main);
+}
+
+.menu a:hover {
+    background: var(--color-hover-bg);
+}
+
+.dark-mode .menu {
+    background-color: var(--color-bg-surface-alt);
+    box-shadow: 0px 4px 6px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .menu a {
+    color: var(--color-text-light);
+    background-color: var(--color-bg-surface);
+}
+
+.dark-mode .menu a:hover {
+    color: var(--color-primary-dark);
+}
+
+/*Main*/
+main {
+    padding: 5% 0;
+    transition: background-color var(--transition-duration) var(--transition-timing);
+}
+
+.dark-mode main {
+    background-color: var(--color-primary-dark);
+}
+
+.contact {
+    display: flex;
+}
+
+.contact h1 {
+    color: var(--color-text-main);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 20px 0 0;
+    line-height: 1;
+    transition: color var(--transition-duration) var(--transition-timing);
+}
+
+.dark-mode .contact h1 {
+    color: var(--color-text-light);
+}
+
+.contact img {
+    width: 40%;
+    position: absolute;
+    top: 30%;
+    left: 10%;
+}
+
+/*Form*/
+form {
+    background-color: var(--color-white);
+    padding: 3% 3% 15% 15%;
+    margin-left: 40%;
+    margin-right: 10%;
+    transition: background-color var(--transition-duration) var(--transition-timing);
+}
+
+.dark-mode form {
+    background-color: var(--color-bg-surface);
+}
+
+form div {
+    height: auto;
+    margin: 32px 20px;
+}
+
+form textarea {
+    height: 70px;
+    font-family: "Roboto Condensed", sans-serif;
+}
+
+/*Input*/
+input,
+textarea {
+    display: block;
+    width: 90%;
+    height: 100%;
+    border: none;
+    font-size: 17px;
+    border-bottom: 2px solid var(--color-border-light);
+    color: var(--color-text-main);
+    background-color: transparent;
+    transition: border-bottom-color var(--transition-duration) var(--transition-timing), 
+                color var(--transition-duration) var(--transition-timing);
+}
+
+.dark-mode input,
+.dark-mode textarea {
+    border-bottom-color: var(--color-primary-dark);
+    color: var(--color-text-light);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--color-placeholder-light);
+    transition: color var(--transition-duration) var(--transition-timing);
+}
+
+.dark-mode input::placeholder,
+.dark-mode textarea::placeholder {
+    color: var(--color-placeholder-dark);
+}
+
+/*Button*/
+.submit {
+    border: 2px solid var(--color-text-main);
+    color: var(--color-text-main);
+    background: none;
+    cursor: pointer;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin: 5%;
+    padding: 10px 30%;
+    transition: background-color var(--transition-duration) var(--transition-timing), 
+                color var(--transition-duration) var(--transition-timing), 
+                border-color var(--transition-duration) var(--transition-timing);
+}
+
+.dark-mode .submit {
+    border-color: var(--color-primary-dark);
+    color: var(--color-primary-dark);
+}
+
+.submit:hover {
+    background-color: var(--color-text-main);
+    color: var(--color-white);
+}
+
+.dark-mode .submit:hover {
+    background-color: var(--color-primary-dark);
+    color: var(--color-bg-body-dark);
+}
+
+.info {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background-color: var(--color-info-bg-light);
+    margin: 5% 15%;
+    padding: 2%;
+    max-width: 70%;
+    position: absolute;
+    top: 90%;
+    left: 5%;
+    gap: 5%;
+    font-size: 1.25rem;
+    transition: background-color var(--transition-duration) var(--transition-timing);
+}
+
+.dark-mode .info {
+    background-color: var(--color-bg-card);
+}
+
+.info h2 {
+    color: var(--color-primary);
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 20px;
+    line-height: 1;
+    text-align: center;
+    transition: color var(--transition-duration) var(--transition-timing);
+}
+
+.dark-mode .info h2 {
+    color: var(--color-primary-dark);
+}
+
+.info p {
+    color: var(--color-text-main);
+    transition: color var(--transition-duration) var(--transition-timing);
+}
+
+.dark-mode .info p {
+    color: var(--color-text-light);
+}
+
+body,
+header,
+.menu,
+.menu a,
+#menu-button,
+#theme-button,
+main,
+.contact h1,
+form,
+input,
+textarea,
+.submit,
+.info,
+.info h2,
+.info p {
+    transition: background-color var(--transition-duration) var(--transition-timing),
+                color var(--transition-duration) var(--transition-timing),
+                border-color var(--transition-duration) var(--transition-timing),
+                box-shadow var(--transition-duration) var(--transition-timing);
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+    .menu-container {
+        margin-right: 5%;
+    }
+
+    .contact img {
+        display: none;
+    }
+
+    .contact {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    form {
+        margin: 0 auto;
+        padding: 15px;
+        width: 80%;
+    }
+
+    form input, textarea {
+        font-size: 1.5rem;
+    }
+
+    .info {
+        position: relative;
+        top: auto;
+        left: auto;
+        margin: 5% auto;
+        max-width: 90%;
+        font-size: 2rem;
+    }
+
+    .info h2 {
+        font-size: 2rem;
+    }
+
+    .contact h1 {
+        font-size: 3rem;
+    }
+
+    .submit {
+        padding: 10px 20%;
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .menu-container {
+        margin-right: 5%;
+    }
+
+    .contact {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    form {
+        margin: 0 auto;
+        padding: 15px;
+        width: 80%;
+    }
+
+    .contact img {
+        display: none;
+    }
+
+    .info {
+        position: relative;
+        top: auto;
+        left: auto;
+        margin: 5% auto;
+        max-width: 90%;
+    }
+
+    .contact h1 {
+        font-size: 2rem;
+    }
+
+    .submit {
+        padding: 10px 20%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .menu {
+        right: 0;
+        left: auto;
+        width: 200px;
+    }
+
+    .contact {
+        padding: 10px;
+    }
+
+    form {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .contact img {
+        display: none;
+    }
+
+    .info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .info div {
+        margin: 15px 0;
+    }
+
+    .submit {
+        width: 100%;
+        padding: 15px;
+        margin: 5% 0;
+    }
+
+    input,
+    textarea {
+        width: 100%;
+    }
+}
