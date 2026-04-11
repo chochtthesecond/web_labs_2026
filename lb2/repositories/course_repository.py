@@ -4,7 +4,7 @@ class CourseRepository:
     def __init__(self, db_connection):
         self.db = db_connection
         
-    def get_all_with_student_count(self):
+    def get_all_with_student_count(self, limit=100, offset=None):
         sql = """
             SELECT c.id, c.title, c.description, c.teacher,
                    COUNT(e.student_id) AS student_count
@@ -13,12 +13,26 @@ class CourseRepository:
             GROUP BY c.id
             ORDER BY c.id
         """
-        rows = self.db.execute_query(sql)
+        params = []
+        if limit is not None:
+            sql += " LIMIT %s"
+            params.append(limit)
+        if offset is not None:
+            sql += " OFFSET %s"
+            params.append(offset)
+        rows = self.db.execute_query(sql, params)
         return [types.SimpleNamespace(**dict(row)) for row in rows]
         
-    def get_all(self):
+    def get_all(self, limit=100, offset=None):
         sql = "SELECT id, title, description, teacher FROM courses ORDER BY id"
-        rows = self.db.execute_query(sql)
+        params = []
+        if limit is not None:
+            sql += " LIMIT %s"
+            params.append(limit)
+        if offset is not None:
+            sql += " OFFSET %s"
+            params.append(offset)
+        rows = self.db.execute_query(sql, params)
         return [types.SimpleNamespace(**dict(row)) for row in rows]
         
     def get_by_id(self, course_id):

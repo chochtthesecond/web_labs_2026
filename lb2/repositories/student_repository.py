@@ -5,13 +5,19 @@ class StudentRepository:
         self.db = db_connection
     
     def get_all_as_objects(self):
-        """Convert each row to an object with attribute access"""
-        rows = self.get_all()  # returns list of RealDictRow
+        rows = self.get_all()
         return [types.SimpleNamespace(**dict(row)) for row in rows]
     
-    def get_all(self):
+    def get_all(self, limit=100, offset=None):
         sql = "SELECT id, name, email, phone, registered_at FROM students ORDER BY id"
-        return self.db.execute_query(sql)
+        params = []
+        if limit is not None:
+            sql += " LIMIT %s"
+            params.append(limit)
+        if offset is not None:
+            sql += " OFFSET %s"
+            params.append(offset)
+        return self.db.execute_query(sql, params)
 
     def get_by_id(self, student_id):
         sql = "SELECT id, name, email, phone, registered_at FROM students WHERE id = %s"
