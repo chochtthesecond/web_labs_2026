@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block title %}{% if course %}Редактирование курса{% else %}Новый курс{% endif %}{% endblock %}
+{% block style %}/static/css/course_form.css{% endblock %}
+
+{% block content %}
+<section class="course-form">
+    <h1>{% if course %}Редактировать курс{% else %}Добавить курс{% endif %}</h1>
+    <form action="{{ form_action }}" method="{{ method }}">
+        <div>
+            <label>Название курса:</label>
+            <input type="text" name="title" value="{{ course.title if course else '' }}" required>
+            {% if errors and errors.get('title') %}<span class="error">{{ errors.get('title') }}</span>{% endif %}
+        </div>
+        <div>
+            <label>Описание:</label>
+            <textarea name="description" rows="4" cols="50">{{ course.description if course else '' }}</textarea>
+            {% if errors and errors.get('description') %}<span class="error">{{ errors.get('description') }}</span>{% endif %}
+        </div>
+		<div>
+            <label>Учитель:</label>
+            <input name="teacher" value="{{ course.teacher if course else '' }}">
+            {% if errors and errors.get('teacher') %}<span class="error">{{ errors.get('teacher') }}</span>{% endif %}
+        </div>
+        <div>
+            <button type="submit">Сохранить</button>
+            <a href="/courses">Отмена</a>
+        </div>
+    </form>
+
+    {% if course and course.id %}
+    <hr>
+    <section class="course-enrollment">
+        <h2>Управление студентами курса "{{ course.title }}"</h2>
+
+        <h3>Записанные студенты</h3>
+        {% if enrolled_students %}
+        <table border="1" cellpadding="6">
+            <thead>
+                <tr><th>ID</th><th>Имя</th><th>Email</th><th>Действие</th></tr>
+            </thead>
+            <tbody>
+                {% for student in enrolled_students %}
+                <tr>
+                    <td>{{ student.id }}</td>
+                    <td>{{ student.name }}</td>
+                    <td>{{ student.email }}</td>
+                    <td>
+                        <form action="/courses/{{ course.id }}/remove_student" method="POST" style="display:inline;">
+                            <input type="hidden" name="student_id" value="{{ student.id }}">
+                            <button type="submit" onclick="return confirm('Удалить студента из курса?')">Отчислить</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>На данный курс не записан ни один студент.</p>
+        {% endif %}
+
+        <h3>Добавить студента</h3>
+        {% if available_students %}
+        <form action="/courses/{{ course.id }}/add_student" method="POST">
+            <select name="student_id" required>
+                <option value="">-- Выберите студента --</option>
+                {% for student in available_students %}
+                <option value="{{ student.id }}">{{ student.name }} ({{ student.email }})</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Записать студента</button>
+        </form>
+        {% else %}
+        <p>Нет доступных студентов для добавления.</p>
+        {% endif %}
+    </section>
+    {% endif %}
+</section>
+{% endblock %}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Музыкальная школа{% endblock %}</title>
+    <link rel="stylesheet" href="{% block style %}/static/css/style.css{% endblock %}">
+    <script src="/static/js/script.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="menu-container">
+                <button id="theme-button"><img src='/static/img/moon-icon.png' alt='turn on dark theme'></button>
+                <button class="menu-button" id="menu-button">☰</button>
+                <div class="menu" id="menu">
+                    <a href="/">Главная</a>
+                    <a href="/about">О нас</a>
+                    <a href="/contact">Контакты</a>
+                    <a href="/students">Студенты</a>
+					<a href="/courses">Курсы</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

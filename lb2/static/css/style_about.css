@@ -1,0 +1,396 @@
+:root {
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-primary: #3e588b;
+    --color-accent: #6a96ed;
+    --color-background: #ffffff;
+    --color-text: #000000;
+    --color-bg-light: #eff3fa;
+    --color-shadow: rgba(0, 0, 0, 0.1);
+    --color-primary-dark: #bb86fc;
+    --color-bg-body: #f7f9f8;
+    --color-bg-body-dark: #121212;
+    --color-bg-surface: #202020;
+    --color-bg-surface-alt: #1e1e1e;
+    --color-bg-card: #2a2a2a;
+    --color-text-main: #333;
+    --color-text-light: #e0e0e0;
+    --color-accent-dark: #8861b7;
+    --color-hover-link: #6a96ed;
+    --color-hover-bg: #f0f0f0;
+	--transition-duration: 0.3s;
+    --transition-timing: ease;
+    --color-background-dark: #1e1e1e;
+    --color-text-dark: #e0e0e0;
+    --color-bg-dark: #121212;
+    --color-shadow-dark: rgba(255, 255, 255, 0.1);
+}
+
+body, body * {
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+body {
+    margin: 0;
+    font-family: "Roboto Condensed", sans-serif;
+    line-height: 1.5;
+    font-size: 1.25rem;
+    background-color: var(--color-background);
+    color: var(--color-text);
+}
+
+/*Header*/
+header {
+    background-color: var(--color-background0);
+    padding: 0.7%;
+    font-family: "Roboto Condensed", sans-serif;
+}
+
+.dark-mode header {
+    background-color: var(--color-bg-surface);
+}
+
+.menu-container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    text-align: right;
+    margin-right: 10%;
+}
+
+.dark-mode .menu-container {
+    margin-right: 10%;
+}
+
+#menu-button {
+    font-size: 2.3rem;
+    background: var(--color-white);
+    color: var(--color-black);
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+	transition: background-color var(--transition-duration) var(--transition-timing);
+}
+
+#menu-button:hover {
+    color: var(--color-hover-link);
+}
+
+.dark-mode #menu-button {
+    color: var(--color-text-light);
+    background-color: var(--color-bg-surface);
+}
+
+.dark-mode #menu-button:hover {
+    color: var(--color-primary-dark);
+}
+
+#theme-button {
+    border: none;
+    background: none;
+    max-width: 10%;
+}
+
+#theme-button img {
+    max-width: 70%;
+    height: auto;
+    border-radius: 50%;
+	transition: background-color var(--transition-duration) var(--transition-timing);
+}
+
+.menu {
+    position: absolute;
+    top: 50px;
+    width: 80%;
+    margin-left: 17%;
+    background: var(--color-white);
+    border-radius: 5px;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease-out, background-color var(--transition-duration) var(--transition-timing), box-shadow var(--transition-duration) var(--transition-timing);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.menu-button {
+    transition: color 0.3s ease;
+}
+
+.menu a {
+    text-decoration: none;
+    display: block;
+    font-size: 1.5rem;
+    padding: 10px;
+    color: var(--color-text-main);
+    transition: background 0.3s, color var(--transition-duration) var(--transition-timing);
+}
+
+.menu a:hover {
+    background: var(--color-hover-bg);
+}
+
+.dark-mode .menu {
+    background-color: var(--color-bg-surface-alt);
+    box-shadow: 0px 4px 6px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .menu a {
+    color: var(--color-text-light);
+    background-color: var(--color-bg-surface);
+}
+
+.dark-mode .menu a:hover {
+    color: var(--color-primary-dark);
+}
+
+/*Main*/
+.school {
+    background-color: var(--color-background);
+    display: flex;
+    align-items: center;
+    padding-top: 30px;
+    flex-direction: column;
+}
+.dark-mode .school {
+	background-color: var(--color-background-dark);
+}
+
+.container {
+    position: relative;
+}
+
+.music-school {
+    top: 85%;
+    left: 2%;
+    max-width: 50%;
+    position: absolute;
+    background-color: var(--color-background);
+}
+.dark-mode .music-school {
+	background-color: var(--color-background-dark);
+}
+
+.music-school p {
+    max-width: 80%;
+    color: var(--color-text);
+}
+.dark-mode .music-school p {
+	color: var(--color-text-dark);
+}
+
+.school img {
+    max-width: 80%;
+    margin-left: 10%;
+}
+
+.school h2 {
+    color: var(--color-primary);
+    font-size: 4rem;
+    font-weight: 700;
+    margin: 10% 0;
+    line-height: 1;
+}
+.dark-mode .school h2 {
+	color: var(--color-primary-dark);
+}
+
+.lightblue {
+    background-color: var(--color-accent);
+    padding: 25% 20% 15%;
+    max-width: 100%;
+    margin-bottom: 5%;
+    margin-top: -1%;
+}
+.dark-mode .lightblue {
+	background-color: var(--color-accent-dark);
+}
+
+.deepblue {
+    background-color: var(--color-primary);
+    padding: 0 20% 5%;
+    max-width: 100%;
+}
+.dark-mode .deepblue {
+	background-color: var(--color-primary-dark);
+}
+
+.pedagogy {
+    background-color: var(--color-bg);
+    display: flex;
+}
+.dark-mode .pedagogy {
+	background-color: var(--color-bg-dark);
+}
+
+.title {
+    background-color: var(--color-primary);
+    margin: 5% 10%;
+    padding: 23% 0;
+}
+.dark-mode .title {
+	background-color: var(--color-primary-dark);
+}
+
+.title h2 {
+    color: var(--color-background);
+    font-size: 4rem;
+    font-weight: 700;
+    margin: 20px;
+    line-height: 1;
+}
+.dark-mode .title h2 {
+	color: var(--color-background-dark);
+}
+
+.info img {
+    max-width: 60%;
+    margin: 13% 0 0;
+}
+
+.info p:first-of-type {
+    color: var(--color-primary);
+    padding: 0 0 15px;
+    display: inline-block;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    background-image: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+.dark-mode .info p:first-of-type {
+	color: var(--color-primary-dark);
+}
+
+.info ul {
+    font-size: 1.2rem;
+    color: var(--color-text);
+}
+.dark-mode .info p:last-of-type, ul {
+	color: var(--color-text-dark);
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+    .music-school {
+        max-width: 60%;
+        font-size: 1.5rem;
+    }
+
+    .school h2 {
+        font-size: 3rem;
+    }
+
+    .title h2 {
+        font-size: 3rem;
+    }
+
+    .info p:first-of-type {
+        font-size: 2rem;
+    }
+
+    .info p:last-of-type,
+    ul {
+        font-size: 2rem;
+    }
+
+    .info img {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+
+    .school {
+        padding-top: 15px;
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    .music-school {
+        position: relative;
+        top: 0;
+        left: 0;
+        max-width: 90%;
+        margin: 20px auto;
+    }
+
+    .music-school p {
+        font-size: 1.2rem;
+    }
+
+    .school img {
+        max-width: 100%;
+        margin-left: 0;
+    }
+
+    .school h2 {
+        font-size: 2rem;
+        margin: 5% 0;
+    }
+
+    .pedagogy {
+        flex-direction: column;
+    }
+
+    .title {
+        margin: 5%;
+        padding: 15% 0;
+    }
+
+    .title h2 {
+        font-size: 2rem;
+        margin: 10px;
+    }
+
+    .info p {
+        margin: 2%;
+    }
+
+    .info img {
+        max-width: 100%;
+        margin: 5% 0;
+    }
+
+    .menu-container {
+        margin-right: 5%;
+    }
+
+    .info p:first-of-type {
+        font-size: 1.2rem;
+    }
+
+    .info p:last-of-type,
+    ul {
+        font-size: 1.2rem;
+    }
+
+    .lightblue,
+    .deepblue {
+        padding: 15% 20%;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu a {
+        font-size: 1.2rem;
+        padding: 15px;
+    }
+
+    .school h2 {
+        font-size: 2rem;
+    }
+
+    .title h2 {
+        font-size: 2rem;
+    }
+
+    .lightblue,
+    .deepblue {
+        padding: 20%;
+    }
+}

@@ -1,0 +1,628 @@
+:root {
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-primary: #3e588b;
+    --color-primary-dark: #bb86fc;
+    --color-bg-body: #f7f9f8;
+    --color-bg-body-dark: #121212;
+    --color-bg-surface: #202020;
+    --color-bg-surface-alt: #1e1e1e;
+    --color-bg-card: #2a2a2a;
+    --color-text-main: #333;
+    --color-text-light: #e0e0e0;
+    --color-accent: #c0cfec;
+    --color-accent-dark: #8861b7;
+    --color-hover-link: #6a96ed;
+    --color-hover-bg: #f0f0f0;
+    --color-error: #d32f2f;
+    --color-error-bg: #ffebee;
+    --color-error-border: #f5c6cb;
+    --border-radius-base: 8px;
+    --box-shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --transition-base: all 0.2s ease;
+}
+
+body {
+    margin: 0;
+    font-family: "Roboto Condensed", sans-serif;
+    line-height: 1.5;
+    background-color: var(--color-white);
+    color: var(--color-text-main);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.dark-mode body {
+    background-color: var(--color-bg-body-dark);
+    color: var(--color-text-light);
+}
+
+/*Header*/
+header {
+    background-color: var(--color-white);
+    padding: 0.7%;
+    font-family: "Roboto Condensed", sans-serif;
+    transition: background-color 0.3s;
+}
+
+.dark-mode body header {
+    background-color: var(--color-bg-surface);
+}
+
+.menu-container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    text-align: right;
+    margin-right: 10%;
+}
+
+.dark-mode body .menu-container {
+    margin-right: 10%;
+}
+
+#menu-button {
+    font-size: 2.3rem;
+    background: var(--color-white);
+    color: var(--color-black);
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+#menu-button:hover {
+    color: var(--color-hover-link);
+}
+
+.dark-mode body #menu-button {
+    color: var(--color-text-light);
+    background-color: var(--color-bg-surface);
+}
+
+.dark-mode body #menu-button:hover {
+    color: var(--color-primary-dark);
+}
+
+#theme-button {
+    border: none;
+    background: none;
+    max-width: 10%;
+    cursor: pointer;
+}
+#theme-button img {
+    max-width: 70%;
+    height: auto;
+    border-radius: 50%;
+}
+
+.menu {
+    position: absolute;
+    top: 50px;
+    width: 80%;
+    margin-left: 17%;
+    background: var(--color-white);
+    border-radius: 5px;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease-out;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.menu a {
+    text-decoration: none;
+    display: block;
+    font-size: 1.5rem;
+    padding: 10px;
+    color: var(--color-text-main);
+    transition: background 0.3s, color 0.3s;
+}
+
+.menu a:hover {
+    background: var(--color-hover-bg);
+}
+
+.dark-mode body .menu {
+    background-color: var(--color-bg-surface-alt);
+    box-shadow: 0px 4px 6px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode body .menu a {
+    color: var(--color-text-light);
+    background-color: var(--color-bg-surface);
+}
+
+.dark-mode body .menu a:hover {
+    color: var(--color-primary-dark);
+}
+
+/*Main*/
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.course-form {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-base);
+    box-shadow: var(--box-shadow-light);
+    padding: 30px 35px 40px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.dark-mode body .course-form {
+    background-color: var(--color-bg-card);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.course-form h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-left: 5px solid var(--color-primary);
+    padding-left: 20px;
+}
+
+.dark-mode body .course-form h1 {
+    color: var(--color-primary-dark);
+    border-left-color: var(--color-primary-dark);
+}
+
+/*Form*/
+.course-form form > div {
+    margin-bottom: 1.5rem;
+}
+
+.course-form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    color: var(--color-text-main);
+}
+
+.dark-mode body .course-form label {
+    color: var(--color-text-light);
+}
+
+/*Input*/
+.course-form input,
+.course-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: var(--color-white);
+    color: var(--color-text-main);
+    transition: var(--transition-base);
+    box-sizing: border-box;
+}
+
+.course-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.course-form input:focus,
+.course-form textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(62, 88, 139, 0.2);
+}
+
+.dark-mode body .course-form input,
+.dark-mode body .course-form textarea {
+    background-color: var(--color-bg-surface-alt);
+    border-color: #444;
+    color: var(--color-text-light);
+}
+
+.dark-mode body .course-form input:focus,
+.dark-mode body .course-form textarea:focus {
+    border-color: var(--color-primary-dark);
+    box-shadow: 0 0 0 3px rgba(187, 134, 252, 0.2);
+}
+
+/*Error*/
+.error {
+    display: inline-block;
+    margin-top: 0.4rem;
+    font-size: 0.85rem;
+    color: var(--color-error);
+    background-color: var(--color-error-bg);
+    padding: 4px 10px;
+    border-radius: 20px;
+    border-left: 3px solid var(--color-error);
+}
+
+.dark-mode body .error {
+    background-color: rgba(211, 47, 47, 0.2);
+    color: #ff8a80;
+    border-left-color: #ff8a80;
+}
+
+/*Button*/
+.course-form button[type="submit"] {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    padding: 12px 28px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: var(--transition-base);
+    margin-right: 15px;
+    font-family: "Roboto Condensed", sans-serif;
+}
+
+.course-form button[type="submit"]:hover {
+    background-color: var(--color-hover-link);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode body .course-form button[type="submit"] {
+    background-color: var(--color-primary-dark);
+    color: var(--color-bg-body-dark);
+}
+
+.dark-mode body .course-form button[type="submit"]:hover {
+    background-color: var(--color-accent-dark);
+    color: #000;
+}
+
+.course-form a {
+    display: inline-block;
+    background: transparent;
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+    padding: 10px 24px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 40px;
+    text-decoration: none;
+    transition: var(--transition-base);
+    font-family: "Roboto Condensed", sans-serif;
+}
+
+.course-form a:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    transform: translateY(-2px);
+}
+
+.dark-mode body .course-form a {
+    border-color: var(--color-primary-dark);
+    color: var(--color-primary-dark);
+}
+
+.dark-mode body .course-form a:hover {
+    background-color: var(--color-primary-dark);
+    color: var(--color-bg-body-dark);
+}
+
+/*Students*/
+.course-form hr {
+    margin: 30px 0 20px;
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
+}
+
+.dark-mode body .course-form hr {
+    background: linear-gradient(90deg, transparent, var(--color-primary-dark), transparent);
+}
+
+.course-enrollment {
+    margin-top: 10px;
+}
+
+.course-enrollment h2 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin: 25px 0 15px;
+    color: var(--color-primary);
+    border-bottom: 2px solid var(--color-accent);
+    padding-bottom: 8px;
+}
+
+.dark-mode body .course-enrollment h2 {
+    color: var(--color-primary-dark);
+    border-bottom-color: var(--color-accent-dark);
+}
+
+.course-enrollment h3 {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin: 20px 0 12px;
+    color: var(--color-text-main);
+}
+
+.dark-mode body .course-enrollment h3 {
+    color: var(--color-text-light);
+}
+
+/*Student table*/
+.course-enrollment table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius-base);
+    overflow: hidden;
+    background-color: var(--color-white);
+}
+
+.dark-mode body .course-enrollment table {
+    border-color: #444;
+    background-color: var(--color-bg-surface-alt);
+}
+
+.course-enrollment th,
+.course-enrollment td {
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.dark-mode body .course-enrollment th,
+.dark-mode body .course-enrollment td {
+    border-bottom-color: #444;
+}
+
+.course-enrollment th {
+    background-color: var(--color-accent);
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.dark-mode body .course-enrollment th {
+    background-color: var(--color-bg-surface);
+    color: var(--color-primary-dark);
+}
+
+.course-enrollment tr:hover {
+    background-color: var(--color-hover-bg);
+}
+
+.dark-mode body .course-enrollment tr:hover {
+    background-color: rgba(187, 134, 252, 0.1);
+}
+
+/*Table buttons*/
+.course-enrollment button {
+    background-color: var(--color-error);
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: var(--transition-base);
+    font-family: "Roboto Condensed", sans-serif;
+}
+
+.course-enrollment button:hover {
+    background-color: #b71c1c;
+    transform: scale(1.02);
+}
+
+.dark-mode body .course-enrollment button {
+    background-color: #c62828;
+}
+
+.dark-mode body .course-enrollment button:hover {
+    background-color: #ff5252;
+    color: #000;
+}
+
+/*Form*/
+.course-enrollment select {
+    padding: 10px 15px;
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: var(--color-white);
+    color: var(--color-text-main);
+    min-width: 250px;
+	max-width: 100%;
+    margin-right: 12px;
+    cursor: pointer;
+    transition: var(--transition-base);
+}
+
+.course-enrollment select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(62, 88, 139, 0.2);
+}
+
+.dark-mode body .course-enrollment select {
+    background-color: var(--color-bg-surface-alt);
+    border-color: #444;
+    color: var(--color-text-light);
+}
+
+.dark-mode body .course-enrollment select:focus {
+    border-color: var(--color-primary-dark);
+    box-shadow: 0 0 0 3px rgba(187, 134, 252, 0.2);
+}
+
+.course-enrollment form button[type="submit"] {
+    background-color: var(--color-primary);
+    padding: 10px 20px;
+    font-size: 0.9rem;
+}
+
+.course-enrollment form button[type="submit"]:hover {
+    background-color: var(--color-hover-link);
+}
+
+.dark-mode body .course-enrollment form button[type="submit"] {
+    background-color: var(--color-primary-dark);
+    color: var(--color-bg-body-dark);
+}
+
+/*Empty msgs*/
+.course-enrollment p {
+    background-color: var(--color-hover-bg);
+    padding: 10px 15px;
+    border-radius: var(--border-radius-base);
+    font-style: italic;
+}
+
+.dark-mode body .course-enrollment p {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--color-text-light);
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+    .menu-container {
+        margin-right: 5%;
+    }
+    #menu-button {
+        font-size: 2rem;
+    }
+    .menu a {
+        font-size: 1.5rem;
+    }
+    .course-form {
+        max-width: 90%;
+        padding: 25px 30px;
+    }
+    .course-form h1 {
+        font-size: 1.9rem;
+    }
+    .course-enrollment th,
+    .course-enrollment td {
+        padding: 8px 10px;
+    }
+    .course-enrollment select {
+        min-width: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-container {
+        margin-right: 5%;
+    }
+    #menu-button {
+        font-size: 24px;
+    }
+    .menu a {
+        font-size: 16px;
+    }
+    .course-form {
+        padding: 20px 20px 30px;
+        max-width: 95%;
+    }
+    .course-form h1 {
+        font-size: 1.7rem;
+        padding-left: 15px;
+    }
+    .course-form button[type="submit"],
+    .course-form a {
+        padding: 8px 20px;
+        font-size: 0.9rem;
+    }
+    .course-form form > div {
+        margin-bottom: 1.2rem;
+    }
+    .course-form input,
+    .course-form textarea {
+        padding: 10px 12px;
+    }
+    .course-enrollment table {
+        display: block;
+        overflow-x: auto;
+    }
+    .course-enrollment th,
+    .course-enrollment td {
+        font-size: 0.85rem;
+        padding: 6px 8px;
+    }
+    .course-enrollment select {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+        min-width: auto;
+    }
+    .course-enrollment form button[type="submit"] {
+        width: 100%;
+    }
+    .course-enrollment h2 {
+        font-size: 1.4rem;
+    }
+    .course-enrollment h3 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #menu-button {
+        font-size: 30px;
+    }
+    .menu-container a {
+        font-size: 20px;
+    }
+    .course-form h1 {
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+    }
+    .course-form {
+        padding: 16px;
+    }
+    .course-form button[type="submit"],
+    .course-form a {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin: 8px 0;
+    }
+    .course-form button[type="submit"] {
+        margin-right: 0;
+    }
+    .error {
+        font-size: 0.75rem;
+    }
+    .course-enrollment th,
+    .course-enrollment td {
+        font-size: 0.75rem;
+        padding: 5px 6px;
+    }
+    .course-enrollment button {
+        padding: 4px 10px;
+        font-size: 0.75rem;
+    }
+}
+
+.course-form input:focus-visible,
+.course-form textarea:focus-visible,
+.course-form button:focus-visible,
+.course-form a:focus-visible,
+.course-enrollment select:focus-visible,
+.course-enrollment button:focus-visible {
+    outline: 2px solid var(--color-primary-dark);
+    outline-offset: 2px;
+}
+
+.dark-mode body .course-form input:focus-visible,
+.dark-mode body .course-form textarea:focus-visible {
+    outline-color: var(--color-primary-dark);
+}

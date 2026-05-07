@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}{% if student %}Редактирование{% else %}Новый студент{% endif %}{% endblock %}
+{% block style %}/static/css/student_form.css{% endblock %}
+
+{% block content %}
+<section class="student-form">
+    <h1>{% if student %}Редактировать студента{% else %}Добавить студента{% endif %}</h1>
+    <form action="{{ form_action }}" method="{{ method }}">
+        <div>
+            <label>Имя:</label>
+            <input type="text" name="name" value="{{ student.name if student else '' }}" required>
+            {% if errors and errors.get('name') %}<span class="error">{{ errors.get('name') }}</span>{% endif %}
+        </div>
+        <div>
+            <label>Email:</label>
+            <input type="email" name="email" value="{{ student.email if student else '' }}" required>
+            {% if errors and errors.get('email') %}<span class="error">{{ errors.get('email') }}</span>{% endif %}
+        </div>
+        <div>
+            <label>Телефон:</label>
+            <input type="text" name="phone" value="{{ student.phone if student else '' }}">
+            {% if errors and errors.get('phone') %}<span class="error">{{ errors.get('phone') }}</span>{% endif %}
+        </div>
+        <div>
+            <button type="submit">Сохранить</button>
+            <a href="/students">Отмена</a>
+        </div>
+    </form>
+</section>
+{% endblock %}
