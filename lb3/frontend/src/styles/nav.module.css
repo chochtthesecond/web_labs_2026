@@ -1,0 +1,185 @@
+/* Header */
+header {
+    background-color: var(--color-white);
+    padding: 0.7%;
+    font-family: "Roboto Condensed", sans-serif;
+}
+
+:global(body.dark-mode) header {
+    background-color: var(--color-bg-surface);
+}
+
+.menu-container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    text-align: right;
+    margin-right: 10%;
+}
+
+:global(body.dark-mode) .menu-container {
+    margin-right: 10%;
+}
+
+.menu-button {
+    font-size: 2.3rem;
+    background: var(--color-white);
+    color: var(--color-black);
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.menu-button:hover {
+    color: var(--color-hover-link);
+}
+
+:global(body.dark-mode) .menu-button {
+    color: var(--color-text-light);
+    background-color: var(--color-bg-surface);
+}
+
+:global(body.dark-mode) .menu-button:hover {
+    color: var(--color-primary-dark);
+}
+
+.theme-btn {
+    border: none;
+    background: none;
+    max-width: 10%;
+}
+
+.theme-btn img {
+    max-width: 70%;
+    height: auto;
+    border-radius: 50%;
+    transition: background-color var(--transition-duration) var(--transition-timing);
+}
+
+.menu {
+    position: absolute;
+    top: 50px;
+    width: 80%;
+    margin-left: 17%;
+    background: var(--color-white);
+    border-radius: 5px;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease-out, background-color var(--transition-duration) var(--transition-timing), box-shadow var(--transition-duration) var(--transition-timing);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.menu.open {
+    max-height: 700px;
+}
+
+.menu a {
+    text-decoration: none;
+    display: block;
+    font-size: 1.5rem;
+    padding: 10px;
+    color: var(--color-text-main);
+    transition: background 0.3s, color var(--transition-duration) var(--transition-timing);
+}
+
+.menu a:hover {
+    background: var(--color-hover-bg);
+}
+
+.menu .logout-btn {
+    text-decoration: none;
+    border: none;
+    background-color: var(--color-white);
+    font-size: 1.5rem;
+    padding: 10px;
+    color: var(--color-text-main);
+    transition: background 0.3s, color var(--transition-duration) var(--transition-timing);
+}
+
+.menu .logout-btn:hover {
+    background-color: var(--color-hover-bg);
+}
+
+:global(body.dark-mode) .menu {
+    background-color: var(--color-bg-surface-alt);
+    box-shadow: 0px 4px 6px rgba(255, 255, 255, 0.1);
+}
+
+:global(body.dark-mode) .menu a {
+    color: var(--color-text-light);
+    background-color: var(--color-bg-surface);
+}
+
+:global(body.dark-mode) .menu a:hover {
+    color: var(--color-primary-dark);
+}
+
+@media (max-width: 768px) {
+    .menu-container {
+        margin-right: 5%;
+    }
+
+    .menu-button {
+        font-size: 1.8rem;
+        padding: 8px 12px;
+    }
+
+    .theme-btn {
+        max-width: none;
+        min-width: 44px;
+        width: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .theme-btn img {
+        max-width: 50px;
+        min-width: 40px;
+    }
+
+    .menu {
+        width: 90%;
+        margin-left: 5%;
+        top: 45px;
+    }
+
+    .menu a,
+    .menu .logout-btn {
+        font-size: 1.3rem;
+        padding: 8px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-container {
+        margin-right: 3%;
+    }
+
+    .menu-button {
+        font-size: 1.5rem;
+        padding: 6px 10px;
+    }
+
+    .theme-btn {
+        min-width: 40px;
+    }
+
+    .theme-btn img {
+        max-width: 40px;
+        min-width: 25px;
+    }
+
+    .menu {
+        width: 94%;
+        margin-left: 3%;
+        top: 40px;
+    }
+
+    .menu a,
+    .menu .logout-btn {
+        font-size: 1.2rem;
+        padding: 8px 10px;
+    }
+}

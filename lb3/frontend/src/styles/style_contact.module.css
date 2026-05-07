@@ -1,0 +1,296 @@
+:global(body.dark-mode) body {
+    background-color: var(--color-primary-dark);
+    color: var(--color-text-light);
+}
+
+/*Main*/
+main {
+    transition: background-color var(--transition-duration) var(--transition-timing);
+}
+main {
+	background-color: var(--color-primary);
+}
+
+:global(body.dark-mode) main {
+    background-color: var(--color-primary-dark);
+}
+
+.contact {
+    display: flex;
+}
+
+.contact h1 {
+    color: var(--color-text-main);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 20px 0 0;
+    line-height: 1;
+    transition: color var(--transition-duration) var(--transition-timing);
+}
+
+:global(body.dark-mode) .contact h1 {
+    color: var(--color-text-light);
+}
+
+.contact img {
+    width: 40%;
+    position: absolute;
+    top: 30%;
+    left: 10%;
+}
+
+/*Form*/
+.form {
+    background-color: var(--color-white);
+    padding: 3% 3% 15% 15%;
+    margin-left: 40%;
+    margin-right: 10%;
+	margin-top: 5%;
+    transition: background-color var(--transition-duration) var(--transition-timing);
+}
+
+:global(body.dark-mode) .form {
+    background-color: var(--color-bg-surface);
+}
+
+.form div {
+    height: auto;
+    margin: 32px 20px;
+}
+
+.form textarea {
+    height: 70px;
+    font-family: "Roboto Condensed", sans-serif;
+}
+
+/*Input*/
+input,
+textarea {
+    display: block;
+    width: 90%;
+    height: 100%;
+    border: none;
+    font-size: 17px;
+    border-bottom: 2px solid var(--color-border-light);
+    color: var(--color-text-main);
+    background-color: transparent;
+    transition: border-bottom-color var(--transition-duration) var(--transition-timing), 
+                color var(--transition-duration) var(--transition-timing);
+}
+
+:global(body.dark-mode) input,
+:global(body.dark-mode) textarea {
+    border-bottom-color: var(--color-primary-dark);
+    color: var(--color-text-light);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--color-placeholder-light);
+    transition: color var(--transition-duration) var(--transition-timing);
+}
+
+:global(body.dark-mode) input::placeholder,
+:global(body.dark-mode) textarea::placeholder {
+    color: var(--color-placeholder-dark);
+}
+
+/*Button*/
+.submit {
+    border: 2px solid var(--color-text-main);
+    color: var(--color-text-main);
+    background: none;
+    cursor: pointer;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin: 5%;
+    padding: 10px 30%;
+    transition: background-color var(--transition-duration) var(--transition-timing), 
+                color var(--transition-duration) var(--transition-timing), 
+                border-color var(--transition-duration) var(--transition-timing);
+}
+
+:global(body.dark-mode) .submit {
+    border-color: var(--color-primary-dark);
+    color: var(--color-primary-dark);
+}
+
+.submit:hover {
+    background-color: var(--color-text-main);
+    color: var(--color-white);
+}
+
+:global(body.dark-mode) .submit:hover {
+    background-color: var(--color-primary-dark);
+    color: var(--color-bg-body-dark);
+}
+
+.info {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background-color: var(--color-white);
+    margin: 3% 15% 0;
+    padding: 5% 10%;
+    max-width: 70%;
+    gap: 5%;
+    font-size: 1.25rem;
+    transition: background-color var(--transition-duration) var(--transition-timing);
+}
+
+:global(body.dark-mode) .info {
+    background-color: var(--color-bg-card);
+}
+
+.info h2 {
+    color: var(--color-primary);
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 20px;
+    line-height: 1;
+    text-align: center;
+    transition: color var(--transition-duration) var(--transition-timing);
+}
+
+:global(body.dark-mode) .info h2 {
+    color: var(--color-primary-dark);
+}
+
+.info p {
+    color: var(--color-text-main);
+    transition: color var(--transition-duration) var(--transition-timing);
+}
+
+:global(body.dark-mode) .info p {
+    color: var(--color-text-light);
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+    .menu-container {
+        margin-right: 5%;
+    }
+
+    .contact img {
+        display: none;
+    }
+
+    .contact {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .form {
+        margin: 0 auto;
+        padding: 15px;
+        width: 80%;
+    }
+
+    .form input, textarea {
+        font-size: 1.5rem;
+    }
+
+    .info {
+        position: relative;
+        top: auto;
+        left: auto;
+        margin: 5% auto;
+        max-width: 90%;
+        font-size: 2rem;
+    }
+
+    .info h2 {
+        font-size: 2rem;
+    }
+
+    .contact h1 {
+        font-size: 3rem;
+    }
+
+    .submit {
+        padding: 10px 20%;
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .menu-container {
+        margin-right: 5%;
+    }
+
+    .contact {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .form {
+        margin: 0 auto;
+        padding: 15px;
+        width: 80%;
+    }
+
+    .contact img {
+        display: none;
+    }
+
+    .info {
+        position: relative;
+        top: auto;
+        left: auto;
+        margin: 5% auto;
+        max-width: 90%;
+    }
+
+    .contact h1 {
+        font-size: 2rem;
+    }
+
+    .submit {
+        padding: 10px 20%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .menu {
+        right: 0;
+        left: auto;
+        width: 200px;
+    }
+
+    .contact {
+        padding: 10px;
+    }
+
+    .form {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .contact img {
+        display: none;
+    }
+
+    .info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .info div {
+        margin: 15px 0;
+    }
+
+    .submit {
+        width: 100%;
+        padding: 15px;
+        margin: 5% 0;
+    }
+
+    input,
+    textarea {
+        width: 100%;
+    }
+}

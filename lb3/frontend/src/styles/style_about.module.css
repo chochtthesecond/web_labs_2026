@@ -1,0 +1,258 @@
+:global(body) {
+    margin: 0;
+    font-family: "Roboto Condensed", sans-serif;
+    line-height: 1.5;
+    font-size: 1.25rem;
+}
+
+/*Main*/
+.school {
+    background-color: var(--color-white);
+    display: flex;
+    align-items: center;
+    padding-top: 30px;
+    flex-direction: column;
+}
+:global(body.dark-mode) .school {
+	background-color: var(--color-bg-surface-alt);
+}
+
+.container {
+    position: relative;
+}
+
+.music-school {
+    top: 85%;
+    left: 2%;
+    max-width: 50%;
+    position: absolute;
+    background-color: var(--color-white);
+}
+:global(body.dark-mode) .music-school {
+	background-color: var(--color-bg-surface-alt);
+}
+
+.music-school p {
+    max-width: 80%;
+    color: var(--color-black);
+}
+:global(body.dark-mode) .music-school p {
+	color: var(--color-text-light);
+}
+
+.school img {
+    max-width: 80%;
+    margin-left: 10%;
+}
+
+.school h2 {
+    color: var(--color-primary);
+    font-size: 4rem;
+    font-weight: 700;
+    margin: 10% 0;
+    line-height: 1;
+}
+:global(body.dark-mode) .school h2 {
+	color: var(--color-primary-dark);
+}
+
+.lightblue {
+    background-color: var(--color-hover-link);
+    padding: 25% 20% 15%;
+    max-width: 100%;
+    margin-bottom: 5%;
+    margin-top: -1%;
+}
+:global(body.dark-mode) .lightblue {
+	background-color: var(--color-accent-dark);
+}
+
+.deepblue {
+    background-color: var(--color-primary);
+    padding: 0 20% 5%;
+    max-width: 100%;
+}
+:global(body.dark-mode) .deepblue {
+	background-color: var(--color-primary-dark);
+}
+
+.pedagogy {
+    background-color: var(--color-white);
+    display: flex;
+}
+:global(body.dark-mode) .pedagogy {
+	background-color: var(--color-bg-body-dark);
+}
+
+.title {
+    background-color: var(--color-primary);
+    margin: 5% 10%;
+    padding: 23% 0;
+}
+:global(body.dark-mode) .title {
+	background-color: var(--color-primary-dark);
+}
+
+.title h2 {
+    color: var(--color-white);
+    font-size: 4rem;
+    font-weight: 700;
+    margin: 20px;
+    line-height: 1;
+}
+:global(body.dark-mode) .title h2 {
+	color: var(--color-bg-surface-alt);
+}
+
+.info img {
+    max-width: 60%;
+    margin: 13% 0 0;
+}
+
+.info p:first-of-type {
+    color: var(--color-primary);
+    padding: 0 0 15px;
+    display: inline-block;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    background-image: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+:global(body.dark-mode) .info p:first-of-type {
+	color: var(--color-primary-dark);
+}
+
+.info ul {
+    font-size: 1.2rem;
+    color: var(--color-black);
+}
+:global(body.dark-mode) .info p:last-of-type, ul {
+	color: var(--color-text-light);
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+    .music-school {
+        max-width: 60%;
+        font-size: 1.5rem;
+    }
+
+    .school h2 {
+        font-size: 3rem;
+    }
+
+    .title h2 {
+        font-size: 3rem;
+    }
+
+    .info p:first-of-type {
+        font-size: 2rem;
+    }
+
+    .info p:last-of-type,
+    ul {
+        font-size: 2rem;
+    }
+
+    .info img {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+
+    .school {
+        padding-top: 15px;
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    .music-school {
+        position: relative;
+        top: 0;
+        left: 0;
+        max-width: 90%;
+        margin: 20px auto;
+    }
+
+    .music-school p {
+        font-size: 1.2rem;
+    }
+
+    .school img {
+        max-width: 100%;
+        margin-left: 0;
+    }
+
+    .school h2 {
+        font-size: 2rem;
+        margin: 5% 0;
+    }
+
+    .pedagogy {
+        flex-direction: column;
+    }
+
+    .title {
+        margin: 5%;
+        padding: 15% 0;
+    }
+
+    .title h2 {
+        font-size: 2rem;
+        margin: 10px;
+    }
+
+    .info p {
+        margin: 2%;
+    }
+
+    .info img {
+        max-width: 100%;
+        margin: 5% 0;
+    }
+
+    .menu-container {
+        margin-right: 5%;
+    }
+
+    .info p:first-of-type {
+        font-size: 1.2rem;
+    }
+
+    .info p:last-of-type,
+    ul {
+        font-size: 1.2rem;
+    }
+
+    .lightblue,
+    .deepblue {
+        padding: 15% 20%;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu a {
+        font-size: 1.2rem;
+        padding: 15px;
+    }
+
+    .school h2 {
+        font-size: 2rem;
+    }
+
+    .title h2 {
+        font-size: 2rem;
+    }
+
+    .lightblue,
+    .deepblue {
+        padding: 20%;
+    }
+}

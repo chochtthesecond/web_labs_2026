@@ -1,0 +1,308 @@
+:global(body) {
+	background-color: var(--color-primary);
+}
+
+:global(body.dark-mode) {
+	background-color: var(--color-primary-dark);
+}
+
+.students-list {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: var(--color-white);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+:global(body.dark-mode) .students-list {
+    background-color: var(--color-bg-card);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+}
+
+.students-list h1 {
+    color: var(--color-primary);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+:global(body.dark-mode) .students-list h1 {
+    color: var(--color-primary-dark);
+}
+
+/*Buttons*/
+.btn {
+    display: inline-block;
+    border: 2px solid var(--color-primary);
+    background: none;
+    color: var(--color-black);
+    padding: 10px 25px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 1.5rem;
+}
+
+.btn:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+:global(body.dark-mode) .btn {
+    border-color: var(--color-primary-dark);
+    color: var(--color-text-light);
+}
+
+:global(body.dark-mode) .btn:hover {
+    background-color: var(--color-primary-dark);
+    color: var(--color-bg-body-dark);
+}
+
+/*Table*/
+.table-wrapper {
+    overflow-x: auto;
+    margin-top: 1rem;
+}
+
+.students-list table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.students-list th,
+.students-list td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border-light);
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+:global(body.dark-mode) .students-list th,
+:global(body.dark-mode) .students-list td {
+    border-bottom-color: var(--color-border-dark);
+}
+
+.students-list th {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+:global(body.dark-mode) .students-list th {
+    background-color: var(--color-primary-dark);
+    color: var(--color-black);
+}
+
+.students-list tbody tr {
+    background-color: var(--color-white);
+}
+
+:global(body.dark-mode) .students-list tbody tr {
+    background-color: var(--color-bg-surface-alt);
+}
+
+.students-list tbody tr:hover {
+    background-color: var(--color-hover-bg);
+}
+
+:global(body.dark-mode) .students-list tbody tr:hover {
+    background-color: rgba(187, 134, 252, 0.15);
+}
+
+/*Action*/
+.students-list td a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+    margin-right: 12px;
+}
+
+.students-list td a:hover {
+    color: var(--color-hover-link);
+    text-decoration: underline;
+}
+
+:global(body.dark-mode) .students-list td a {
+    color: var(--color-primary-dark);
+}
+
+:global(body.dark-mode) .students-list td a:hover {
+    color: var(--color-accent-dark);
+}
+
+/*Delete button*/
+.students-list td form {
+    display: inline;
+}
+
+.students-list td button {
+    background: none;
+    border: 1px solid var(--color-primary);
+    color: var(--color-text-main);
+    padding: 5px 12px;
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.students-list td button:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+:global(body.dark-mode) .students-list td button {
+    border-color: var(--color-primary-dark);
+    color: var(--color-text-light);
+}
+
+:global(body.dark-mode) .students-list td button:hover {
+    background-color: var(--color-primary-dark);
+    color: var(--color-bg-body-dark);
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+    .menu-container {
+        margin-right: 5%;
+    }
+
+    #menu-button {
+        font-size: 2rem;
+    }
+
+    .menu a {
+        font-size: 1.5rem;
+    }
+
+    .students-list {
+        margin: 1.5rem;
+        padding: 1.5rem;
+    }
+
+    .students-list h1 {
+        font-size: 2rem;
+    }
+
+    .btn {
+        font-size: 0.9rem;
+        padding: 8px 20px;
+    }
+
+    .students-list th,
+    .students-list td {
+        padding: 10px 12px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-container {
+        margin-right: 5%;
+    }
+
+    #menu-button {
+        font-size: 24px;
+    }
+
+    .menu a {
+        font-size: 16px;
+    }
+
+    .students-list {
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    .students-list h1 {
+        font-size: 1.75rem;
+    }
+
+    .btn {
+        font-size: 0.8rem;
+        padding: 6px 16px;
+        margin-bottom: 1rem;
+    }
+
+    .students-list table {
+        font-size: 0.85rem;
+    }
+
+    .students-list th,
+    .students-list td {
+        padding: 8px 10px;
+    }
+
+    .students-list td button {
+        padding: 4px 8px;
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #menu-button {
+        font-size: 30px;
+    }
+
+    .students-list h1 {
+        font-size: 1.5rem;
+    }
+
+    .btn {
+        font-size: 0.75rem;
+        padding: 5px 12px;
+    }
+
+    .students-list table,
+    .students-list th,
+    .students-list td {
+        font-size: 0.75rem;
+    }
+
+    .students-list th,
+    .students-list td {
+        padding: 6px 8px;
+    }
+
+    .students-list td button {
+        padding: 3px 6px;
+        font-size: 0.7rem;
+    }
+
+    .students-list td a {
+        display: inline-block;
+        margin-bottom: 4px;
+    }
+}
+
+/*горизонтальный скролл таблиц на телефонах*/
+@media (max-width: 768px) {
+    .students-list {
+        overflow-x: auto;
+    }
+    
+    .students-list table {
+        min-width: 500px;
+    }
+}
+
+:global(body.dark-mode) .btn:focus,
+:global(body.dark-mode) #menu-button:focus,
+:global(body.dark-mode) .students-list td button:focus {
+    outline-color: var(--color-primary-dark);
+}
