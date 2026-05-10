@@ -2,19 +2,38 @@ from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 from jose import JWTError
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy import select
 
 from app.database import get_db
 from app.core.security import decode_token
-from app.models.user import User, UserRole
-from app.schemas.token import TokenPayload
-from app.models.student import Student
+from app.models.user import User
+from app.repositories import StudentRepository, UserRepository, CourseRepository, EnrollmentRepository
+from app.services import PasswordService
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/v1/auth/login", auto_error=False)
 
+def get_password_service() -> PasswordService:
+    return PasswordService()
+    
+def get_user_repository(
+        db: AsyncSession = Depends(get_db),password_service: PasswordService = Depends(get_password_service)
+) -> UserRepository:
+    return UserRepository(db, password_service)
+
+def get_student_repository(
+        db: AsyncSession = Depends(get_db),
+        password_service: PasswordService = Depends(get_password_service)
+) -> StudentRepository:
+    return StudentRepository(db, password_service)
+
+def get_course_repository(db: AsyncSession = Depends(get_db)) -> CourseRepository:
+    return CourseRepository(db)
+
+def get_enrollment_repository(db: AsyncSession = Depends(get_db)) -> EnrollmentRepository:
+    return EnrollmentRepository(db)
+    
 async def get_current_user(
     token: str = Depends(oauth2_scheme),
-    db: AsyncSession = Depends(get_db)
+    user_repo: UserRepository = Depends(get_user_repository)
 ) -> User:
     credentials_exception = HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,
@@ -33,20 +52,16 @@ async def get_current_user(
     except JWTError:
         raise credentials_exception
     
-    result = await db.execute(select(User).where(User.id == int(user_id)))
-    user = result.scalar_one_or_none()
+    user = await user_repo.get_by_id(int(user_id))
     if user is None:
         raise credentials_exception
     return user
 
 async def get_current_student(
     current_user: User = Depends(get_current_user),
-    db: AsyncSession = Depends(get_db)
-) -> Student:
-    result = await db.execute(
-        select(Student).where(Student.user_id == current_user.id)
-    )
-    student = result.scalar_one_or_none()
+    student_repo: StudentRepository = Depends(get_student_repository)
+):
+    student = await student_repo.get_by_user_id(current_user.id)
     if not student:
         raise HTTPException(status_code=404, detail="Student profile not found")
     return student

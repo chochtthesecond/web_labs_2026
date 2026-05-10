@@ -2,12 +2,13 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, update, delete
 from sqlalchemy.orm import selectinload
 from app.models import User, Student
-from app.core.security import get_password_hash
+from app.services import PasswordService
 from typing import Optional, Dict, Any
 
 class StudentRepository:
-    def __init__(self, db: AsyncSession):
+    def __init__(self, db: AsyncSession, password_service: PasswordService):
         self.db = db
+        self.password_service = password_service
 
     async def get_all(self, skip: int = 0, limit: int = 100):
         stmt = select(Student).options(selectinload(Student.user)).offset(skip).limit(limit)
@@ -18,10 +19,16 @@ class StudentRepository:
         stmt = select(Student).options(selectinload(Student.user)).where(Student.id == student_id)
         result = await self.db.execute(stmt)
         return result.scalar_one_or_none()
+        
+    async def get_by_user_id(self, user_id: int):
+        #получение студента по id пользователя
+        stmt = select(Student).options(selectinload(Student.user)).where(Student.user_id == user_id)
+        result = await self.db.execute(stmt)
+        return result.scalar_one_or_none()
 
     async def create_with_user(self, email: str, password: str, name: str, phone: Optional[str], role: str = "student"):
         #создание пользователя и профиля студента в одной транзакции
-        hashed = get_password_hash(password)
+        hashed = self.password_service.hash(password)
         user = User(email=email, hashed_password=hashed, role=role)
         self.db.add(user)
         await self.db.flush() #чтобы получить user.id

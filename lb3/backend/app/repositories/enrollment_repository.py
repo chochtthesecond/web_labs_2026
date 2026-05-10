@@ -1,6 +1,7 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, delete
-from app.models import CourseEnrollment, Course
+from sqlalchemy.orm import selectinload
+from app.models import CourseEnrollment, Course, Student
 from typing import Optional
 
 class EnrollmentRepository:
@@ -38,3 +39,13 @@ class EnrollmentRepository:
         )
         result = await self.db.execute(stmt)
         return result.all()
+        
+    async def get_students_for_course(self, course_id: int):
+        stmt = (
+            select(Student)
+            .join(CourseEnrollment, Student.id == CourseEnrollment.student_id)
+            .where(CourseEnrollment.course_id == course_id)
+            .options(selectinload(Student.user))
+        )
+        result = await self.db.execute(stmt)
+        return result.scalars().all()
